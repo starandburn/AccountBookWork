@@ -133,3 +133,12 @@ public struct Money
         return m.Value.ToString();
     }
 }
+
+// １件の家計簿データを保持するTransactionレコード
+public record Transaction(
+    Date Date,              // 日付
+    string Category,        // 分類
+    string Name,            // 品名
+    Money Amount,           // 金額
+    string Remarks          // 備考
+);
