@@ -38,5 +38,27 @@ namespace AccountBook
             txtAmount.Text = (string)tr.Amount;
             txtDate.Text = tr.Date;
         }
+
+        // 画面項目から１件のレコードを取得する
+        public Transaction GetTransaction()
+        {
+            // 各テキストボックスから取得
+            var name = txtName.Text;
+            var category = txtCategory.Text;
+            var remarks = txtRemarks.Text;
+            var date = (Date)txtDate.Text;
+            var amount = new Money(txtAmount.Text);
+
+            // レコードを作成
+            var tr = new Transaction(date, category, name, amount, remarks);
+            return tr;
+        }
+
+        // OKボタンのイベントハンドラー
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            var tr = GetTransaction();
+            Debug.WriteLine(tr);
+        }
     }
 }

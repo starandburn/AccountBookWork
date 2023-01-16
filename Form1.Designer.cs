@@ -38,6 +38,7 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.btnOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -120,11 +121,22 @@
             this.txtRemarks.Size = new System.Drawing.Size(100, 23);
             this.txtRemarks.TabIndex = 1;
             // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(211, 24);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 2;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtRemarks);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtAmount);
@@ -155,5 +167,6 @@
         private TextBox txtAmount;
         private Label label5;
         private TextBox txtRemarks;
+        private Button btnOK;
     }
 }
