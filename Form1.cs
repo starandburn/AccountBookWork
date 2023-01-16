@@ -22,6 +22,21 @@ namespace AccountBook
             Debug.WriteLine(tr4);
 
             //tr1.Amount = 600;   // レコードのプロパティは作成時以外は変更できない 
+
+            ShowTransaction(tr1);	// tr1の内容を表示する
+            //ShowTransaction(tr2);	// tr2の内容を表示する
+            //ShowTransaction(tr3);	// tr3の内容を表示する
+            //ShowTransaction(tr4);	// tr4の内容を表示する
+        }
+
+        // １件のレコードを画面に表示する
+        private void ShowTransaction(Transaction tr)
+        {
+            txtName.Text = tr.Name;
+            txtCategory.Text = tr.Category;
+            txtRemarks.Text = tr.Remarks;
+            txtAmount.Text = (string)tr.Amount;
+            txtDate.Text = tr.Date;
         }
     }
 }
