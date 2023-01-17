@@ -54,5 +54,12 @@ namespace AccountBook
 
 
         }
+
+        // OKボタンのイベントハンドラー
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            var tr = GetTransaction();
+            Debug.WriteLine(tr);
+        }
     }
 }
