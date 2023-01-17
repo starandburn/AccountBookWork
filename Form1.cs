@@ -20,7 +20,19 @@ namespace AccountBook
             Debug.WriteLine(d3);                                // インスタンスをそのまま表示
 
             var d4 = (Date)DateTime.Now;    // DateTimeをDateにキャストして代入(d1はDate型になる)
-            Date d5 = "2023/1/23";		// d5がDate型なので暗黙的にDateにキャストして代入 
+            Date d5 = "2023/1/23";      // d5がDate型なので暗黙的にDateにキャストして代入 
+
+            var tr1 = new Transaction("2023/1/25", "食費", "牛丼", 500, "つゆだく");
+            var tr2 = new Transaction((Date)DateTime.Now, "文房具", "ボールペン", 200, "");
+            Debug.WriteLine(tr1);
+            Debug.WriteLine(tr2);
+
+            var tr3 = tr1 with { };		// with句を使い、tr1と全く同じ値を持つデータを作る
+            Debug.WriteLine(tr3);
+
+            var tr4 = tr2 with { Name = "万年筆", Amount = 12345, Remarks = "プレゼント用" };
+            Debug.WriteLine(tr4);
+
 
         }
     }
