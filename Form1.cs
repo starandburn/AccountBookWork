@@ -11,6 +11,15 @@ namespace AccountBook
             txtAmount.Text = (string)tr.Amount;
             txtDate.Text = tr.Date;
         }
+        public Transaction GetTransaction()
+        {
+            return new Transaction(
+                txtDate.Text,
+                txtCategory.Text,
+                txtName.Text,
+                new Money(txtAmount.Text),
+                txtRemarks.Text);
+        }
         public Form1()
         {
             InitializeComponent();
