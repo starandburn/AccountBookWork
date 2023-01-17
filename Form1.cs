@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 namespace AccountBook
 {
-    public partial class Form1 : Form
+    public partial class EntryForm : Form
     {
         private void ShowTransaction(Transaction tr)
         {
@@ -20,7 +20,7 @@ namespace AccountBook
                 new Money(txtAmount.Text),
                 txtRemarks.Text);
         }
-        public Form1()
+        public EntryForm()
         {
             InitializeComponent();
         }

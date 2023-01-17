@@ -1,6 +1,6 @@
 ﻿namespace AccountBook
 {
-    partial class Form1
+    partial class EntryForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -131,11 +131,11 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // Form1
+            // EntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(303, 172);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtRemarks);
             this.Controls.Add(this.label5);
@@ -147,8 +147,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.Name = "EntryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "データ入力";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
