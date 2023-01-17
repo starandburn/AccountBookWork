@@ -3,6 +3,14 @@ namespace AccountBook
 {
     public partial class Form1 : Form
     {
+        private void ShowTransaction(Transaction tr)
+        {
+            txtName.Text = tr.Name;
+            txtCategory.Text = tr.Category;
+            txtRemarks.Text = tr.Remarks;
+            txtAmount.Text = (string)tr.Amount;
+            txtDate.Text = tr.Date;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +40,8 @@ namespace AccountBook
 
             var tr4 = tr2 with { Name = "万年筆", Amount = 12345, Remarks = "プレゼント用" };
             Debug.WriteLine(tr4);
+
+            ShowTransaction(tr4);
 
 
         }
