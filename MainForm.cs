@@ -12,6 +12,8 @@ namespace AccountBook
 {
     public partial class MainForm : Form
     {
+        private List<Transaction> transactions = new();
+
         public MainForm()
         {
             InitializeComponent();
