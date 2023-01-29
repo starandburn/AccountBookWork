@@ -7,6 +7,17 @@ namespace AccountBook
         // 複数の家計簿レコードを保持するリスト
         private List<Transaction> transactions = new();
 
+        private void MakeTransactionList()
+        {
+            foreach (var tr in transactions)
+            {
+                var text = $"{tr.Date} {tr.Category} {tr.Name} {tr.Amount} {tr.Remarks}";
+                lstTransactions.Items.Add(text);
+            }
+        
+        }
+
+
         // コンストラクタ―(自動生成)
         public MainForm()
         {
@@ -35,11 +46,7 @@ namespace AccountBook
                 // リストの末尾に追加する
                 transactions.Add(tr);
 
-                // 現時点のリストをすべて表示する
-                foreach (var tr2 in transactions)
-                {
-                    Debug.WriteLine(tr2);
-                }
+                MakeTransactionList();
             }
         }
 
@@ -69,11 +76,7 @@ namespace AccountBook
             transactions.Add(new Transaction("2023/03/05", "雑費", "カード年会費", 1200, "年１回"));
             transactions.Add(new Transaction("2023/03/05", "娯楽", "マンガ", 400, ""));
 
-            // 追加したレコードをすべて表示する
-            foreach (var tr in transactions)
-            {
-                Debug.WriteLine(tr);
-            }
+            MakeTransactionList();
         }
     }
 }
