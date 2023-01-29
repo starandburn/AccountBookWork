@@ -9,12 +9,14 @@ namespace AccountBook
 
         private void MakeTransactionList()
         {
+            lstTransactions.BeginUpdate();
+            lstTransactions.Items.Clear();
             foreach (var tr in transactions)
             {
                 var text = $"{tr.Date} {tr.Category} {tr.Name} {tr.Amount} {tr.Remarks}";
                 lstTransactions.Items.Add(text);
             }
-        
+            lstTransactions.EndUpdate();
         }
 
 
