@@ -88,6 +88,9 @@ namespace AccountBook
             var tr = transactions[index];
             var form = new EntryForm(tr);
             if (form.ShowDialog() != DialogResult.OK) return;
+            var tr2 = form.GetTransaction();
+            transactions[index] = tr2;
+            MakeTransactionList();
 
         }
     }
