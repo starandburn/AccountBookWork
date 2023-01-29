@@ -24,6 +24,10 @@ namespace AccountBook
         {
             InitializeComponent();
         }
+        public EntryForm(Transaction tr) : this()
+        {
+            ShowTransaction(tr);
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
