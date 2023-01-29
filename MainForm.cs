@@ -80,5 +80,15 @@ namespace AccountBook
 
             MakeTransactionList();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var index = lstTransactions.SelectedIndex;
+            if (index == -1) return;
+            var tr = transactions[index];
+            var form = new EntryForm(tr);
+            if (form.ShowDialog() != DialogResult.OK) return;
+
+        }
     }
 }

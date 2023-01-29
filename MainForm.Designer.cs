@@ -68,6 +68,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "変更";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
