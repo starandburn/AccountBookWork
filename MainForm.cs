@@ -7,16 +7,24 @@ namespace AccountBook
         // 複数の家計簿レコードを保持するリスト
         private List<Transaction> transactions = new();
 
-        private void MakeTransactionList()
+        // 画面上の家計簿一覧を作成する
+        private void MakeTransactionList(int index = -1)
         {
-            lstTransactions.BeginUpdate();
-            lstTransactions.Items.Clear();
+            lstTransactions.BeginUpdate();  // リストボックス更新開始
+            lstTransactions.Items.Clear();  // リストボックス中身クリア
+
+            // 家計簿データを全件処理
             foreach (var tr in transactions)
             {
+                // 表示する文字列の作成
                 var text = $"{tr.Date} {tr.Category} {tr.Name} {tr.Amount} {tr.Remarks}";
+
+                // 一覧に追加
                 lstTransactions.Items.Add(text);
             }
-            lstTransactions.EndUpdate();
+
+            lstTransactions.SelectedIndex = index;// 指定された項目を選択
+            lstTransactions.EndUpdate();    // リストボックス更新終了
         }
 
 
@@ -78,19 +86,27 @@ namespace AccountBook
             transactions.Add(new Transaction("2023/03/05", "雑費", "カード年会費", 1200, "年１回"));
             transactions.Add(new Transaction("2023/03/05", "娯楽", "マンガ", 400, ""));
 
-            MakeTransactionList();
+            // 一覧を作成して最終行を選択する
+            MakeTransactionList(transactions.Count - 1);
         }
 
+        // [更新]ボタンをクリックしたときのイベントハンドラー
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var index = lstTransactions.SelectedIndex;
-            if (index == -1) return;
-            var tr = transactions[index];
-            var form = new EntryForm(tr);
-            if (form.ShowDialog() != DialogResult.OK) return;
-            var tr2 = form.GetTransaction();
-            transactions[index] = tr2;
-            MakeTransactionList();
+            // 現在選択されている項目を取得
+            var index = lstTransactions.SelectedIndex;// 上から何番目か
+            if (index == -1) return;    // 未選択なら何もしない
+
+            var tr = transactions[index];   // 対応する家計簿データの取得
+
+            // 入力フォームの表示
+            var form = new EntryForm(tr);// データを指定して表示
+            if (form.ShowDialog() != DialogResult.OK) return; // [OK]以外は何もしない
+
+            // 家計簿データの更新
+            var tr2 = form.GetTransaction();// 入力データの取得
+            transactions[index] = tr2;      // 該当データの差し替え
+            MakeTransactionList(index);     // 一覧の再作成
 
         }
     }

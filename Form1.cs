@@ -20,12 +20,17 @@ namespace AccountBook
                 new Money(txtAmount.Text),
                 txtRemarks.Text);
         }
+
+        // デフォルトコンストラクタ―
         public EntryForm()
         {
             InitializeComponent();
         }
+
+        // 更新用に家計簿データを指定するコンストラクタ―
         public EntryForm(Transaction tr) : this()
         {
+            // 家計簿データの表示
             ShowTransaction(tr);
         }
 
