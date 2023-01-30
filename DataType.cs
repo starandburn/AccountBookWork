@@ -31,10 +31,12 @@ public class Date
     // 文字列を受け取るコンストラクタ―
     public Date(string str)
     {
-        // 文字列から日時型に変換する（失敗したら例外）
-        var dt = DateTime.Parse(str);
-        // 日付部分のみ取り出して設定する
-        Value = dt.Date;
+        // 文字列から日時型に変換する（できなかったらしない）
+        if (DateTime.TryParse(str, out var dt))
+        {
+            // 日付部分のみ取り出して設定する
+            Value = dt.Date;
+        }
     }
 
     // Date型からDateTime型への暗黙的キャスト演算子のオーバーロード
@@ -100,9 +102,17 @@ public struct Money
     }
 
     // string型を受け取るコンストラクタ―
-    public Money(string str) : this(decimal.Parse(str))
+    public Money(string str) 
     {
-        // 文字列を十進型に変換したものを別のコンストラクタ―に渡す
+        if (!decimal.TryParse(str, out var dc)) return;
+        // 負の値の場合、0を設定して終わる
+        if (dc < 0)
+        {
+            Value = 0;
+            return;
+        }
+        // 精密な四捨五入をした整数を設定する
+        Value = Math.Round(dc, MidpointRounding.AwayFromZero);
     }
 
     // decimal型からMoney型への暗黙的キャスト演算子のオーバーロード

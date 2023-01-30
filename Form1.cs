@@ -3,6 +3,28 @@ namespace AccountBook
 {
     public partial class EntryForm : Form
     {
+        private bool CheckEntry()
+        {
+            if (!DateTime.TryParse(txtDate.Text, out _))
+            {
+                MessageBox.Show("日付が正しくありません。");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("品名は必須項目です。");
+                return false;
+            }
+
+            if (!decimal.TryParse(txtAmount.Text, out _))
+            {
+                MessageBox.Show("金額が正しくありません。");
+                return false;
+            }
+
+            return true;
+        }
         private void ShowTransaction(Transaction tr)
         {
             txtName.Text = tr.Name;
@@ -42,8 +64,10 @@ namespace AccountBook
         // OKボタンのイベントハンドラー
         private void btnOK_Click(object sender, EventArgs e)
         {
-            var tr = GetTransaction();
-            Debug.WriteLine(tr);
+            if (!CheckEntry()) return;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

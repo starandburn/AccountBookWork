@@ -134,11 +134,10 @@
             // 
             // btnOK
             // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(276, 17);
+            this.btnOK.Location = new System.Drawing.Point(264, 17);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(96, 32);
+            this.btnOK.Size = new System.Drawing.Size(108, 40);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -147,9 +146,9 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(276, 179);
+            this.btnCancel.Location = new System.Drawing.Point(264, 169);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(96, 29);
+            this.btnCancel.Size = new System.Drawing.Size(108, 39);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "キャンセル";
             this.btnCancel.UseVisualStyleBackColor = true;

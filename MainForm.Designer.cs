@@ -45,15 +45,15 @@
             this.lstTransactions.ItemHeight = 21;
             this.lstTransactions.Location = new System.Drawing.Point(12, 12);
             this.lstTransactions.Name = "lstTransactions";
-            this.lstTransactions.Size = new System.Drawing.Size(615, 271);
+            this.lstTransactions.Size = new System.Drawing.Size(615, 257);
             this.lstTransactions.TabIndex = 0;
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(12, 289);
+            this.btnAdd.Location = new System.Drawing.Point(12, 277);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(95, 29);
+            this.btnAdd.Size = new System.Drawing.Size(95, 38);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "追加";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -62,9 +62,9 @@
             // btnUpdate
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUpdate.Location = new System.Drawing.Point(113, 289);
+            this.btnUpdate.Location = new System.Drawing.Point(113, 277);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.btnUpdate.Size = new System.Drawing.Size(95, 38);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "変更";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -73,19 +73,20 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.Location = new System.Drawing.Point(214, 289);
+            this.btnDelete.Location = new System.Drawing.Point(214, 277);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(95, 29);
+            this.btnDelete.Size = new System.Drawing.Size(95, 38);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "削除";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(532, 289);
+            this.btnExit.Location = new System.Drawing.Point(532, 277);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(95, 29);
+            this.btnExit.Size = new System.Drawing.Size(95, 38);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "終了";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -95,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 330);
+            this.ClientSize = new System.Drawing.Size(639, 327);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);

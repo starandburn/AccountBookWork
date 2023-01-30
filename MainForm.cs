@@ -23,6 +23,7 @@ namespace AccountBook
                 lstTransactions.Items.Add(text);
             }
 
+            index = Math.Max(-1, Math.Min(index, lstTransactions.Items.Count - 1));
             lstTransactions.SelectedIndex = index;// 指定された項目を選択
             lstTransactions.EndUpdate();    // リストボックス更新終了
         }
@@ -56,7 +57,7 @@ namespace AccountBook
                 // リストの末尾に追加する
                 transactions.Add(tr);
 
-                MakeTransactionList();
+                MakeTransactionList(transactions.Count - 1);
             }
         }
 
@@ -108,6 +109,20 @@ namespace AccountBook
             transactions[index] = tr2;      // 該当データの差し替え
             MakeTransactionList(index);     // 一覧の再作成
 
+        }
+
+        // [削除]ボタンをクリックしたときのイベントハンドラー
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // 削除対象のインデックス番号を取得
+            var index = lstTransactions.SelectedIndex;
+            if (index == -1) return;    // 未選択なら何もしない
+
+            // データ群から１件除外
+            transactions.RemoveAt(index);
+
+            // 一覧を再作成
+            MakeTransactionList(index);
         }
     }
 }
