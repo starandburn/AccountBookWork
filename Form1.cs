@@ -5,11 +5,11 @@ namespace AccountBook
     {
         private bool CheckEntry()
         {
-            if (!DateTime.TryParse(txtDate.Text, out _))
-            {
-                MessageBox.Show("日付が正しくありません。");
-                return false;
-            }
+            //if (!DateTime.TryParse(txtDate.Text, out _))
+            //{
+            //    MessageBox.Show("日付が正しくありません。");
+            //    return false;
+            //}
 
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
@@ -17,29 +17,29 @@ namespace AccountBook
                 return false;
             }
 
-            if (!decimal.TryParse(txtAmount.Text, out _))
-            {
-                MessageBox.Show("金額が正しくありません。");
-                return false;
-            }
+            //if (!decimal.TryParse(txtAmount.Text, out _))
+            //{
+            //    MessageBox.Show("金額が正しくありません。");
+            //    return false;
+            //}
 
             return true;
         }
         private void ShowTransaction(Transaction tr)
         {
             txtName.Text = tr.Name;
-            txtCategory.Text = tr.Category;
+            cboCategory.Text = tr.Category;
             txtRemarks.Text = tr.Remarks;
-            txtAmount.Text = (string)tr.Amount;
-            txtDate.Text = tr.Date;
+            nudAmount.Value = tr.Amount;
+            dtpDate.Value = tr.Date;
         }
         public Transaction GetTransaction()
         {
             return new Transaction(
-                txtDate.Text,
-                txtCategory.Text,
+                (Date)dtpDate.Value,
+                cboCategory.Text,
                 txtName.Text,
-                new Money(txtAmount.Text),
+                new Money(nudAmount.Value),
                 txtRemarks.Text);
         }
 
@@ -47,6 +47,8 @@ namespace AccountBook
         public EntryForm()
         {
             InitializeComponent();
+            var tr = new Transaction((Date)DateTime.Today, "", "", 0, "");
+            ShowTransaction(tr);
         }
 
         // 更新用に家計簿データを指定するコンストラクタ―

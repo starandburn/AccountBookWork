@@ -47,6 +47,8 @@
             this.lstTransactions.Name = "lstTransactions";
             this.lstTransactions.Size = new System.Drawing.Size(615, 257);
             this.lstTransactions.TabIndex = 0;
+            this.lstTransactions.TabStop = false;
+            this.lstTransactions.DoubleClick += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -65,7 +67,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(113, 277);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(95, 38);
-            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "変更";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -76,7 +78,7 @@
             this.btnDelete.Location = new System.Drawing.Point(214, 277);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(95, 38);
-            this.btnDelete.TabIndex = 1;
+            this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "削除";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -87,7 +89,8 @@
             this.btnExit.Location = new System.Drawing.Point(532, 277);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(95, 38);
-            this.btnExit.TabIndex = 1;
+            this.btnExit.TabIndex = 4;
+            this.btnExit.TabStop = false;
             this.btnExit.Text = "終了";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
