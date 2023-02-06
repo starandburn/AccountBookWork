@@ -13,11 +13,13 @@ namespace AccountBook
             lstTransactions.BeginUpdate();  // リストボックス更新開始
             lstTransactions.Items.Clear();  // リストボックス中身クリア
 
+            //lstTransactions.Items.Add(string.Join("\t", "|", "|", "|", "|", "|"));
+
             // 家計簿データを全件処理
             foreach (var tr in transactions)
             {
                 // 表示する文字列の作成
-                var text = $"{tr.Date} {tr.Category} {tr.Name} {tr.Amount} {tr.Remarks}";
+                var text = $"{tr.Date}\t{tr.Category}\t{tr.Name}\t{tr.Amount}\t{tr.Remarks}";
 
                 // 一覧に追加
                 lstTransactions.Items.Add(text);
@@ -86,6 +88,14 @@ namespace AccountBook
             transactions.Add(new Transaction("2023/03/05", "食費", "夕食", 1000, ""));
             transactions.Add(new Transaction("2023/03/05", "雑費", "カード年会費", 1200, "年１回"));
             transactions.Add(new Transaction("2023/03/05", "娯楽", "マンガ", 400, ""));
+
+            lstTransactions.UseCustomTabOffsets = true;
+            lstTransactions.CustomTabOffsets.Clear();
+            //lstTransactions.CustomTabOffsets.Add(42);
+            //lstTransactions.CustomTabOffsets.Add(80);
+            //lstTransactions.CustomTabOffsets.Add(160);
+            //lstTransactions.CustomTabOffsets.Add(200);
+            lstTransactions.CustomTabOffsets.AddRange(new[] { 42, 80, 160, 200 });
 
             // 一覧を作成して最終行を選択する
             MakeTransactionList(transactions.Count - 1);

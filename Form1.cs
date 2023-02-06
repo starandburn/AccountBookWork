@@ -71,5 +71,15 @@ namespace AccountBook
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void MultiButton_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            //if (btn == null) return;
+            //if (btn?.Tag == null) return;
+            var str = btn?.Tag?.ToString();
+            if (!decimal.TryParse(str, out var dc)) return;
+            nudAmount.Value *= dc;
+        }
     }
 }

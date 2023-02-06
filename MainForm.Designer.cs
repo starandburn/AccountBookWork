@@ -45,15 +45,14 @@
             this.lstTransactions.ItemHeight = 21;
             this.lstTransactions.Location = new System.Drawing.Point(12, 12);
             this.lstTransactions.Name = "lstTransactions";
-            this.lstTransactions.Size = new System.Drawing.Size(615, 257);
+            this.lstTransactions.Size = new System.Drawing.Size(654, 326);
             this.lstTransactions.TabIndex = 0;
-            this.lstTransactions.TabStop = false;
             this.lstTransactions.DoubleClick += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(12, 277);
+            this.btnAdd.Location = new System.Drawing.Point(12, 346);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(95, 38);
             this.btnAdd.TabIndex = 1;
@@ -64,7 +63,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUpdate.Location = new System.Drawing.Point(113, 277);
+            this.btnUpdate.Location = new System.Drawing.Point(113, 346);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(95, 38);
             this.btnUpdate.TabIndex = 2;
@@ -75,7 +74,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.Location = new System.Drawing.Point(214, 277);
+            this.btnDelete.Location = new System.Drawing.Point(214, 346);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(95, 38);
             this.btnDelete.TabIndex = 3;
@@ -86,7 +85,7 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(532, 277);
+            this.btnExit.Location = new System.Drawing.Point(571, 346);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(95, 38);
             this.btnExit.TabIndex = 4;
@@ -99,7 +98,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 327);
+            this.CancelButton = this.btnExit;
+            this.ClientSize = new System.Drawing.Size(678, 396);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
