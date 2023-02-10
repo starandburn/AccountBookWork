@@ -134,5 +134,15 @@ namespace AccountBook
             // 一覧を再作成
             MakeTransactionList(index);
         }
+
+        // フォームが閉じられようとしている時のイベントハンドラー
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("アプリケーションを終了しますか？", "確認",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                == DialogResult.Yes) return;
+            // 終了をキャンセルする
+            e.Cancel = true;
+        }
     }
 }
