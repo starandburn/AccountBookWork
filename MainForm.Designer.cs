@@ -132,30 +132,32 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(120, 22);
+            this.mnuNew.Size = new System.Drawing.Size(180, 22);
             this.mnuNew.Text = "新規";
+            this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // mnuSave
             // 
             this.mnuSave.Name = "mnuSave";
-            this.mnuSave.Size = new System.Drawing.Size(120, 22);
+            this.mnuSave.Size = new System.Drawing.Size(180, 22);
             this.mnuSave.Text = "保存";
+            this.mnuSave.Click += new System.EventHandler(this.mnuSave_Click);
             // 
             // mnuLoad
             // 
             this.mnuLoad.Name = "mnuLoad";
-            this.mnuLoad.Size = new System.Drawing.Size(120, 22);
+            this.mnuLoad.Size = new System.Drawing.Size(180, 22);
             this.mnuLoad.Text = "読み込み";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(117, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(120, 22);
+            this.mnuExit.Size = new System.Drawing.Size(180, 22);
             this.mnuExit.Text = "終了";
             this.mnuExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

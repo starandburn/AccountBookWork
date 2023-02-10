@@ -13,7 +13,7 @@ namespace AccountBook
 
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                MessageBox.Show("品名は必須項目です。");
+                MessageBox.Show("品名は必須項目です。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

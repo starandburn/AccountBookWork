@@ -7,6 +7,65 @@ namespace AccountBook
         // 複数の家計簿レコードを保持するリスト
         private List<Transaction> transactions = new();
 
+        private string GetCsvLine(Transaction tr)
+        {
+            return $"{tr.Date},{tr.Category},{tr.Name},{(string)tr.Amount},{tr.Remarks}";
+        }
+
+        private bool SaveTransactions(string filename)
+        {
+            try
+            {
+                using var sw = new StreamWriter(filename, false,
+                                        System.Text.Encoding.GetEncoding("Shift-JIS"));
+                foreach (var tr in transactions)
+                {
+                    sw.WriteLine(GetCsvLine(tr));
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private Transaction FromCsvLine(string line)
+        {
+            if (string.IsNullOrWhiteSpace(line)) return null;
+            var items = line.Split(",");		// カンマで分割して１件ずつ配列に入れる
+
+            var date = new Date();
+            var category = string.Empty;
+            var name = string.Empty;
+            var amount = new Money();
+            var remarks = string.Empty;
+
+            for (var i = 0; i < items.Length; i++) 	// 番号が必要なのでforeachを使わない
+            {
+                var item = items[i]?.ToString().Trim();	// １項目分の文字列を作る
+                switch (i)
+                {
+                    case 0:     // 0番目のデータは日付
+                        date = new Date(item);      // item（文字列）をもとに日付を作って入れる
+                        break;
+                    case 1:     // 1番目のデータは分類
+                        category = item;            // 分類は文字列なのでitemをそのまま入れる
+                        break;
+                    case 2:
+                        name = item;
+                        break;
+                    case 3:
+                        amount = new Money(item);
+                        break;
+                    case 4:
+                        remarks = item;
+                        break;
+                }
+            }
+            return new Transaction(date, category, name, amount, remarks);
+        }
+
         // 画面上の家計簿一覧を作成する
         private void MakeTransactionList(int index = -1)
         {
@@ -67,6 +126,9 @@ namespace AccountBook
         // メイン画面ロードのイベントハンドラー
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Shift-JISを使う準備
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
             // ダミーのデータを20件直接追加する
             transactions.Add(new Transaction("2023/03/01", "医療費", "風邪薬", 450, ""));
             transactions.Add(new Transaction("2023/03/01", "食費", "牛丼", 650, "クーポン使用"));
@@ -143,6 +205,31 @@ namespace AccountBook
                                 == DialogResult.Yes) return;
             // 終了をキャンセルする
             e.Cancel = true;
+        }
+
+        private void mnuSave_Click(object sender, EventArgs e)
+        {
+            var fname = @"C:\Temp\AccountBook.csv";
+            if (SaveTransactions(fname))
+            {
+                MessageBox.Show("家計簿ファイルを保存しました。", "保存",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("家計簿ファイルが保存できませんでした。", "保存",
+                                MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mnuNew_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("一覧をクリアしてよろしいですか？", "新規",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                                == DialogResult.No) return;
+
+            transactions.Clear();
+            MakeTransactionList();
         }
     }
 }
